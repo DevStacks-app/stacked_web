@@ -26,15 +26,28 @@ class _WebWindowState extends State<WebWindow> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Listener(
-            onPointerMove: (event) {
-              setState(() => _offset += event.delta);
-            },
+            onPointerMove: (event) => setState(() => _offset += event.delta),
             child: Container(
               padding: EdgeInsets.all(16),
               height: 64,
               width: double.infinity,
               color: Colors.blue,
-              child: Text('${widget.url} (${_engine.hashCode})'),
+              child: Row(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      _engine
+                          ?.callMethod('alert', ["I was called from Flutter"]);
+                      _engine?.eval('alert("I was injected from Flutter")');
+                    },
+                    icon: Icon(Icons.code),
+                  ),
+                  Text(
+                    '${widget.url} (${_engine.hashCode})',
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
             ),
           ),
           Flexible(
