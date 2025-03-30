@@ -11,8 +11,8 @@ This package will at the very least support the following:
 
 - [x] Works on Windows 10 & 11 and iOS
 - [x] Multiple web views that can be laid over each other
-- [ ] Communicate between Dart and the web view's JS runtime
-- [ ] Set the JS mode (strict vs disabled)
+- [x] Communicate between Dart and the web view's JS runtime
+- [x] Set the JS mode (strict vs disabled)
 - [ ] Have access to the navigation changes (on page change, on page progress, on page start, on page finish)
 - [ ] Gesture recognition
 

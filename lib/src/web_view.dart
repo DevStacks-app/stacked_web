@@ -10,10 +10,18 @@ import 'package:stacked_web/stacked_web.dart';
 /// {@endtemplate}
 class WebView extends StatefulWidget {
   /// {@macro web_view}
-  const WebView({required this.url, this.onEngineAttached, super.key});
+  const WebView({
+    required this.url,
+    this.mode = JsMode.enabled,
+    this.onEngineAttached,
+    super.key,
+  });
 
   /// The initial URL to load.
   final String url;
+
+  /// The mode of JavaScript execution.
+  final JsMode mode;
 
   /// Optional call back for when a [WebEngine] get's attached.
   final ValueChanged<WebEngine>? onEngineAttached;
